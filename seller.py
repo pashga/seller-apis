@@ -222,6 +222,7 @@ def price_conversion(price: str) -> str:
 
 def divide(lst: list, n: int):
     """Разделить список lst на части по n элементов
+    
     Args:
         lst (list): список, который необходимо разделить на подсписки
         n (int): количество элементов в подсписках
@@ -235,6 +236,7 @@ def divide(lst: list, n: int):
 async def upload_prices(watch_remnants, client_id, seller_token):
     """
     Загрузка цен на товары на сайт магазина Ozon
+
     Args:
         watch_remnants (list): список словарей, содержащих остатки товаров
         client_id (str): идентификатор клиента для аутентификации по API
@@ -253,6 +255,7 @@ async def upload_prices(watch_remnants, client_id, seller_token):
 async def upload_stocks(watch_remnants, client_id, seller_token):
     """
     Загрузка остатков товаров на сайт магазина Ozon
+
     Args:
         watch_remnants (list): список словарей, содержащих остатки товаров
         client_id (str): идентификатор клиента для аутентификации по API

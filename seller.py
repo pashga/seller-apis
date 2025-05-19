@@ -222,7 +222,7 @@ def price_conversion(price: str) -> str:
 
 def divide(lst: list, n: int):
     """Разделить список lst на части по n элементов
-    
+
     Args:
         lst (list): список, который необходимо разделить на подсписки
         n (int): количество элементов в подсписках

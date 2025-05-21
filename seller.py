@@ -17,7 +17,7 @@ def get_product_list(last_id, client_id, seller_token):
     Args:
         last_id (str): идентификатор последнего товара, с которого следует получать данные
         client_id (str): идентификатор клиента для аутентификации по API
-        seller_token (str): ключ продавца для аутентификации по API
+        seller_token (str): идентификатор продавца для аутентификации по API
 
     Raises:
         requests.exceptions.HTTPError: если запрос завершился неуспешно
@@ -48,7 +48,7 @@ def get_offer_ids(client_id, seller_token):
 
     Args:
         client_id (str): идентификатор клиента для аутентификации по API
-        seller_token (str): ключ продавца для аутентификации по API
+        seller_token (str): идентификатор продавца для аутентификации по API
 
     Raises:
         requests.exceptions.HTTPError: если запрос завершился неуспешно
@@ -77,7 +77,7 @@ def update_price(prices: list, client_id, seller_token):
     Args:
         prices (list): список словарей, содержащих цены на товары
         client_id (str): идентификатор клиента для аутентификации по API
-        seller_token (str): ключ продавца для аутентификации по API
+        seller_token (str): идентификатор продавца для аутентификации по API
 
     Raises:
         requests.exceptions.HTTPError: если запрос завершился неуспешно
@@ -102,7 +102,7 @@ def update_stocks(stocks: list, client_id, seller_token):
     Args:
         stocks (list): список словарей, содержащих остатки товаров
         client_id (str): идентификатор клиента для аутентификации по API
-        seller_token (str): ключ продавца для аутентификации по API
+        seller_token (str): идентификатор продавца для аутентификации по API
 
     Raises:
         requests.exceptions.HTTPError: если запрос завершился неуспешно
@@ -150,8 +150,7 @@ def download_stock():
 
 
 def create_stocks(watch_remnants, offer_ids):
-    """
-    Создание списка товаров для последующей передачи в функцию update_stocks.
+    """Создание списка товаров для последующей передачи в функцию update_stocks.
 
     Args:
         watch_remnants (list): список словарей, содержащих остатки товаров
@@ -180,8 +179,7 @@ def create_stocks(watch_remnants, offer_ids):
 
 
 def create_prices(watch_remnants, offer_ids):
-    """
-    Создание списка цен на товары для последующей передачи в функцию update_price.
+    """Создание списка цен на товары для последующей передачи в функцию update_price.
 
     Args:
         watch_remnants (list): список словарей, содержащих остатки товаров
@@ -234,13 +232,12 @@ def divide(lst: list, n: int):
 
 
 async def upload_prices(watch_remnants, client_id, seller_token):
-    """
-    Загрузка цен на товары на сайт магазина Ozon
+    """Загрузка цен на товары на сайт магазина Ozon
 
     Args:
         watch_remnants (list): список словарей, содержащих остатки товаров
         client_id (str): идентификатор клиента для аутентификации по API
-        seller_token (str): ключ продавца для аутентификации по API
+        seller_token (str): идентификатор продавца для аутентификации по API
 
     Returns:
         list: список цен для загрузки на сайт Ozon
@@ -253,13 +250,12 @@ async def upload_prices(watch_remnants, client_id, seller_token):
 
 
 async def upload_stocks(watch_remnants, client_id, seller_token):
-    """
-    Загрузка остатков товаров на сайт магазина Ozon
+    """Загрузка остатков товаров на сайт магазина Ozon
 
     Args:
         watch_remnants (list): список словарей, содержащих остатки товаров
         client_id (str): идентификатор клиента для аутентификации по API
-        seller_token (str): ключ продавца для аутентификации по API
+        seller_token (str): идентификатор продавца для аутентификации по API
 
     Returns:
         tuple: кортеж, содержащий списки товаров,
@@ -274,9 +270,7 @@ async def upload_stocks(watch_remnants, client_id, seller_token):
 
 
 def main():
-    """
-    Основная функция данного скрипта.
-    """
+    """Основная функция данного скрипта"""
     env = Env()
     seller_token = env.str("SELLER_TOKEN")
     client_id = env.str("CLIENT_ID")
